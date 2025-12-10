@@ -1,5 +1,5 @@
 <?php
-// Incluir la clase base
+
 require_once 'DatosPersonales.php';
 
 class Profesor extends DatosPersonales {
@@ -7,7 +7,7 @@ class Profesor extends DatosPersonales {
     private $departamentoAdscrito;
     private $cursoEscolar;
 
-    // Constructor: llama al constructor padre y asigna atributos propios
+    // Constructor
     public function __construct($nombreCompleto, $dni, $direccion, $fechaNacimiento, $email, $telefono, $centroImparte, $departamentoAdscrito, $cursoEscolar) {
         parent::__construct($nombreCompleto, $dni, $direccion, $fechaNacimiento, $email, $telefono);
         $this->centroImparte = $centroImparte;
@@ -25,7 +25,7 @@ class Profesor extends DatosPersonales {
     public function setDepartamentoAdscrito($departamentoAdscrito) { $this->departamentoAdscrito = $departamentoAdscrito; }
     public function setCursoEscolar($cursoEscolar) { $this->cursoEscolar = $cursoEscolar; }
 
-    // Método solicitado para mostrar los datos
+    // Método para mostrar los datos
     public function MostrarDatos() {
         $datos = $this->getDatosPersonalesArray();
         $datos['Centro donde Imparte'] = $this->centroImparte;
@@ -35,7 +35,7 @@ class Profesor extends DatosPersonales {
         $this->generarTabla('Datos Personales del Profesor', $datos);
     }
     
-    // Función auxiliar para generar la tabla HTML
+    // Método para generar la tabla HTML
     private function generarTabla($titulo, $datos) {
         echo '<h2>' . $titulo . '</h2>';
         echo '<table border="1" style="border-collapse: collapse; width: 50%;">';
